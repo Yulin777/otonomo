@@ -1,26 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {EventsPanel} from './components/eventsPanel';
+import {SubscriptionPanel} from "./components/subscriptionsPanel";
+import Divider from '@mui/material/Divider';
+import {styled} from "@mui/system";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const StyledContainer = styled('div')(() => ({
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100vh',
+    width: '100vw'
+}));
+
+export const App = () => {
+    return <StyledContainer>
+        <div style={{flex: 2}}><SubscriptionPanel/></div>
+
+        <Divider orientation="vertical" flexItem/>
+
+        <div style={{flex: 3}}><EventsPanel/></div>
+    </StyledContainer>;
 }
-
-export default App;
